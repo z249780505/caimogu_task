@@ -37,9 +37,29 @@ public class App
         if (!acIds.isEmpty()) {
             ids.removeAll(acIds);
         }
-        for (Integer id : ids) {
-            CaiMoGuHelp.actSource(id,null);
+        if (ids.isEmpty()) {
+            //无可用id时重新扫描
+            ids = CaiMoGuHelp.ScanGameIds();
         }
+        if (!acIds.isEmpty()) {
+            ids.removeAll(acIds);
+        }
+        if (ids.isEmpty()) {
+            //说明无可用Id
+            return;
+        }
+        System.out.println("测试");
+        int trueFlag = 0;
+ /*       for (Integer id : ids) {
+            if (CaiMoGuHelp.actSore(id,null)){
+                trueFlag++;
+                acIds.add(id);
+            }
+            if (trueFlag == 3) {
+                return;
+            }
+        }*/
+        //重新上传ac
     }
 
 
